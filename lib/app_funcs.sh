@@ -98,7 +98,9 @@ function compile_app() {
      $hook_compile || exit 1
   else
      output_section "Compiling snappyer"
-     mix deps.compile snappyer --verbose --force || exit 1
+     cd $build_path/deps/snappyer
+     rebar compile || exit 1
+     cd $build_path
      mix compile --verbose --force || exit 1
   fi
 
