@@ -97,6 +97,8 @@ function compile_app() {
      output_section "(using custom compile command)"
      $hook_compile || exit 1
   else
+     output_section "Compiling snappyer"
+     mix deps.compile snappyer --verbose --force || exit 1
      mix compile --verbose --force || exit 1
   fi
 
