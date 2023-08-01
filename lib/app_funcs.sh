@@ -99,7 +99,7 @@ function compile_app() {
   else
      output_section "Compiling snappyer"
      cd $build_path/deps/snappyer
-     rebar3 compile || exit 1
+     /tmp/app/.mix/rebar3 compile || exit 1
      cd $build_path
      mix compile --verbose --force || exit 1
   fi
