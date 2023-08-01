@@ -48,16 +48,16 @@ install_hex
 install_rebar
 
 # deprecated_hook, here for backwards compatibility
-pre_compile_hook
+#pre_compile_hook
 
-restore_app
-hook_pre_app_dependencies
-app_dependencies
-copy_hex
+#restore_app
+#hook_pre_app_dependencies
+#app_dependencies
+#copy_hex
 
-hook_pre_compile
-compile_app
-hook_post_compile
+#hook_pre_compile
+#compile_app
+#hook_post_compile
 
 release_app
 
