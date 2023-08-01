@@ -31,8 +31,8 @@ fetch_erlang_versions() {
       curl -s "$url" | awk '/^OTP-([0-9.]+ )/ {print substr($1,5)}'
       ;;
     *)
-      url="https://raw.githubusercontent.com/HashNuke/heroku-buildpack-elixir-otp-builds/master/otp-versions"
-      curl -s "$url"
+      url="https://builds.hex.pm/builds/otp/ubuntu-22.04/builds.txt"
+      curl -s "$url" | awk '/^OTP-([0-9.]+ )/ {print substr($1,5)}'
       ;;
   esac
 }
