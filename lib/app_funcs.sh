@@ -97,7 +97,7 @@ function compile_app() {
      output_section "(using custom compile command)"
      $hook_compile || exit 1
   else
-     mix compile --force || exit 1
+     mix compile --verbose --force || exit 1
   fi
 
   mix deps.clean --unused
