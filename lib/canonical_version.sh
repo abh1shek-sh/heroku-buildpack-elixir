@@ -8,11 +8,8 @@ erlang_builds_url() {
     "heroku-22")
       erlang_builds_url="https://builds.hex.pm/builds/otp/ubuntu-22.04"
       ;;
-     "cflinuxfs4")
-      erlang_builds_url="https://builds.hex.pm/builds/otp/ubuntu-22.04"
-      ;;
     *)
-      erlang_builds_url="https://s3.amazonaws.com/heroku-buildpack-elixir/erlang/cedar-14"
+      erlang_builds_url="https://builds.hex.pm/builds/otp/ubuntu-22.04"
       ;;
   esac
   echo $erlang_builds_url
