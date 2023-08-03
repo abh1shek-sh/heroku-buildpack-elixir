@@ -97,10 +97,10 @@ function compile_app() {
      output_section "(using custom compile command)"
      $hook_compile || exit 1
   else
-     output_section "Compiling snappyer"
-     cd $build_path/deps/crc32cer
-     /tmp/app/.mix/rebar3 compile || exit 1
-     cd $build_path
+     # output_section "Compiling snappyer"
+     # cd $build_path/deps/crc32cer
+     # /tmp/app/.mix/rebar3 compile || exit 1
+     # cd $build_path
      mix compile --verbose --force || exit 1
   fi
 
