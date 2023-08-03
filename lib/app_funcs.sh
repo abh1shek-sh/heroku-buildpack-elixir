@@ -66,9 +66,6 @@ function app_dependencies() {
   cd $build_path
   output_section "Fetching app dependencies with mix"
 
-  output_section "trying to run the release" 
-  _build/dev/rel/cache_api/bin/cache_api start
-
   # Unset this var so that if the parent dir is a git repo, it isn't detected
   # And all git operations are performed on the respective repos
   env \
