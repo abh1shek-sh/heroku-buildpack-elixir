@@ -64,6 +64,9 @@ function app_dependencies() {
   mkdir -p "$(build_mix_home_path)"
 
   cd $build_path
+  output section "executing ls" 
+  ls -al
+  ls  _build/dev/rel/cache_api/
   output_section "Fetching app dependencies with mix"
 
   # Unset this var so that if the parent dir is a git repo, it isn't detected
