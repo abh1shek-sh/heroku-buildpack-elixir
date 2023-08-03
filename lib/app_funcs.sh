@@ -64,7 +64,7 @@ function app_dependencies() {
   mkdir -p "$(build_mix_home_path)"
 
   cd $build_path
-  output section "executing ls" 
+  output_section "executing ls" 
   ls -al
   ls  _build/dev/rel/cache_api/
   output_section "Fetching app dependencies with mix"
