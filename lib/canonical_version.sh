@@ -8,9 +8,6 @@ erlang_builds_url() {
     "heroku-22")
       erlang_builds_url="https://builds.hex.pm/builds/otp/ubuntu-22.04"
       ;;
-    "cflinuxfs4")
-      erlang_builds_url="https://builds.hex.pm/builds/otp/ubuntu-22.04"
-      ;;
     *)
       erlang_builds_url="https://builds.hex.pm/builds/otp/ubuntu-22.04"
       ;;
@@ -20,9 +17,7 @@ erlang_builds_url() {
 
 fetch_elixir_versions() {
   url="https://builds.hex.pm/builds/elixir/builds.txt"
-  # builds.txt lists names like "v1.20.4-otp-29" and "v1.20.4"; strip the
-  # leading "v" and any "-otp-NN" suffix so bare versions (e.g. 1.20.4) match.
-  curl -s "$url" | awk '/^v[0-9.]+[- ]/ { v=$1; sub(/^v/,"",v); sub(/-otp-[0-9]+$/,"",v); print v }' | sort -u
+  curl -s "$url" | awk '/^v[0-9.]+[- ]/ { print $1 }'
 }
 
 fetch_erlang_versions() {
@@ -32,10 +27,6 @@ fetch_erlang_versions() {
       curl -s "$url" | awk '/^OTP-([0-9.]+ )/ {print substr($1,5)}'
       ;;
     "heroku-22")
-      url="https://builds.hex.pm/builds/otp/ubuntu-22.04/builds.txt"
-      curl -s "$url" | awk '/^OTP-([0-9.]+ )/ {print substr($1,5)}'
-      ;;
-    "cflinuxfs4")
       url="https://builds.hex.pm/builds/otp/ubuntu-22.04/builds.txt"
       curl -s "$url" | awk '/^OTP-([0-9.]+ )/ {print substr($1,5)}'
       ;;

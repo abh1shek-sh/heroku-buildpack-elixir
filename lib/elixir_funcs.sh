@@ -7,16 +7,16 @@ function download_elixir() {
     elixir_changed=true
     local otp_version=$(otp_version ${erlang_version})
 
-    local download_url="https://builds.hex.pm/builds/elixir/v${elixir_version}-otp-${otp_version}.zip"
+    local download_url="https://builds.hex.pm/builds/elixir/${elixir_version}-otp-${otp_version}.zip"
 
     output_section "Fetching Elixir ${elixir_version} for OTP ${otp_version} from ${download_url}"
 
-    curl -fsSL ${download_url} -o $(elixir_cache_path)/$(elixir_download_file)
+    curl -s ${download_url} -o $(elixir_cache_path)/$(elixir_download_file)
 
     if [ $? -ne 0 ]; then
       output_section "Falling back to fetching Elixir ${elixir_version} for generic OTP version"
-      local download_url="https://builds.hex.pm/builds/elixir/v${elixir_version}.zip"
-      curl -fsSL ${download_url} -o $(elixir_cache_path)/$(elixir_download_file) || exit 1
+      local download_url="https://builds.hex.pm/builds/elixir/${elixir_version}.zip"
+      curl -s ${download_url} -o $(elixir_cache_path)/$(elixir_download_file) || exit 1
     fi
   else
     output_section "Using cached Elixir ${elixir_version}"
